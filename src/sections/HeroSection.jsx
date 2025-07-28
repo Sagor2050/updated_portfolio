@@ -36,9 +36,7 @@ export default function HeroSection() {
         className="relative w-52 h-52 md:w-80 md:h-80 rounded-full overflow-hidden mb-10 md:mb-0 md:mr-16"
       >
         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-400 via-teal-400 to-blue-700 animate-pulse"></div>
-        <img
-          src="/dp2.jpeg"
-          alt="Profile"
+        <img src={`${import.meta.env.BASE_URL}dp2.jpeg`} alt="Profile" 
           className="relative w-full h-full object-cover rounded-full border-4 border-[#0f0c29]"
         />
       </motion.div>
