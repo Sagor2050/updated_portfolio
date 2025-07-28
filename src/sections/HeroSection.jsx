@@ -19,8 +19,9 @@ const item = {
 };
 
 export default function HeroSection() {
+  // Open resume PDF from public folder with correct base path for GitHub Pages
   const handleResumeClick = () => {
-    window.open('/Resume.pdf', '_blank');
+    window.open(`${import.meta.env.BASE_URL}Resume.pdf`, '_blank');
   };
 
   return (
@@ -36,7 +37,9 @@ export default function HeroSection() {
         className="relative w-52 h-52 md:w-80 md:h-80 rounded-full overflow-hidden mb-10 md:mb-0 md:mr-16"
       >
         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-400 via-teal-400 to-blue-700 animate-pulse"></div>
-        <img src={`${import.meta.env.BASE_URL}dp2.jpeg`} alt="Profile" 
+        <img
+          src={`${import.meta.env.BASE_URL}dp2.jpeg`}
+          alt="Profile"
           className="relative w-full h-full object-cover rounded-full border-4 border-[#0f0c29]"
         />
       </motion.div>
@@ -78,8 +81,9 @@ export default function HeroSection() {
           className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
         >
           <button
-          onClick={() => window.location.href = "mailto:sagorsd975@gmail.com"}
-          className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-teal-400 hover:from-cyan-400 hover:to-teal-300 text-white font-medium rounded-xl shadow-[0_0_10px_cyan] hover:scale-105 transition-all duration-300">
+            onClick={() => (window.location.href = 'mailto:sagorsd975@gmail.com')}
+            className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-teal-400 hover:from-cyan-400 hover:to-teal-300 text-white font-medium rounded-xl shadow-[0_0_10px_cyan] hover:scale-105 transition-all duration-300"
+          >
             Contact Me
           </button>
           <button
