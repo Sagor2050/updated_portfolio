@@ -21,7 +21,7 @@ const item = {
 export default function HeroSection() {
   // Open resume PDF from public folder with correct base path for GitHub Pages
   const handleResumeClick = () => {
-    window.open(`${import.meta.env.BASE_URL}Resume.pdf`, '_blank');
+    window.open(`${import.meta.env.BASE_URL}SagorS_DhorResume.pdf`, '_blank');
   };
 
   return (
