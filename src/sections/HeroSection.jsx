@@ -26,23 +26,58 @@ export default function HeroSection() {
 
   return (
     <section
-      id="about"
-      className="min-h-[70vh] flex flex-col md:flex-row items-center justify-center px-6 pt-5 pb-5 bg-[#0f0c29] text-white"
-    >
+    id="about"
+    className="isolate min-h-[70vh] flex flex-col md:flex-row items-center justify-center px-6 pt-16 md:pt-5 pb-8 bg-[#0f0c29] text-white"
+  >
+  
+
       {/* Profile Image with Glow */}
       <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="relative w-52 h-52 md:w-80 md:h-80 rounded-full overflow-hidden mb-10 md:mb-0 md:mr-16"
-      >
-        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-400 via-teal-400 to-blue-700 animate-pulse"></div>
-        <img
-          src={`${import.meta.env.BASE_URL}dp2.jpeg`}
-          alt="Profile"
-          className="relative w-full h-full object-cover rounded-full border-4 border-[#0f0c29]"
-        />
-      </motion.div>
+  initial={{ scale: 0.8, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  transition={{ duration: 1.2, ease: 'easeOut' }}
+  className="relative w-52 h-52 md:w-80 md:h-80 rounded-full mt-10 sm:mt-12 md:mt-0 md:mr-16 mb-14 sm:mb-16"
+>
+  {/* Futuristic animated conic ring */}
+  <div
+    className="absolute inset-0 rounded-full pointer-events-none z-0"
+    aria-hidden="true"
+  >
+    {/* Main ring (hollow center via mask) */}
+    <div
+      className="
+        absolute inset-0 rounded-full
+        [background:conic-gradient(from_0deg,theme(colors.cyan.400),theme(colors.fuchsia.500),theme(colors.blue.500),theme(colors.cyan.400))]
+        [mask:radial-gradient(farthest-side,#000_calc(100%-6px),transparent_calc(100%-6px))]
+        animate-[spin_10s_linear_infinite]
+        opacity-90
+      "
+    />
+    {/* Soft halo inside the ring */}
+    <div
+      className="
+        absolute inset-0 rounded-full blur-[8px] opacity-45
+        [background:conic-gradient(from_0deg,theme(colors.cyan.400),theme(colors.fuchsia.500),theme(colors.blue.500),theme(colors.cyan.400))]
+      "
+    />
+    {/* Orbiting particle */}
+    <div className="absolute inset-0 rounded-full animate-[spin_6s_linear_infinite]">
+      <span
+        className="absolute left-1/2 -translate-x-1/2 -top-1 w-2 h-2 rounded-full
+                   bg-cyan-300 shadow-[0_0_12px_3px_rgba(34,211,238,0.9)]"
+      />
+    </div>
+  </div>
+
+  {/* Profile image sits above the ring */}
+  <img
+    src={`${import.meta.env.BASE_URL}dp2.jpeg`}
+    alt="Profile"
+    className="relative z-10 w-full h-full object-cover rounded-full border-0 shadow-[0_0_40px_rgba(34,211,238,0.25)]"
+  />
+</motion.div>
+
+
 
       {/* Text & Buttons */}
       <motion.div
